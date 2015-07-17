@@ -3,10 +3,10 @@
 describe('Testing the controller "TilesController"', function () {
     beforeEach(module('knowledge'));
 
-    var tilesController, scope;
+    var TilesController, scope;
     beforeEach(inject(function ($controller) {
         scope = {};
-        tilesController = $controller('TilesController', {
+        TilesController = $controller('TilesController', {
             $scope: scope
         })
     }));
