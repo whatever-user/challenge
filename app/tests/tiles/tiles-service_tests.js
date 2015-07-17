@@ -3,12 +3,12 @@
 describe('Testing the service "Tiles"', function () {
     beforeEach(module('knowledge'));
 
-    var tiles;
-    beforeEach(inject(function (Tiles) {
-        tiles = Tiles;
+    var Tiles;
+    beforeEach(inject(function (_Tiles_) {
+        Tiles = _Tiles_;
     }));
 
     it('should have 100 tiles', function () {
-        expect(tiles.all().length).toBe(100);
+        expect(Tiles.all().length).toBe(100);
     });
 });
