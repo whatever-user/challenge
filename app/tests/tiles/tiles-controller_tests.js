@@ -4,9 +4,8 @@ describe('Testing the controller "TilesController"', function () {
     beforeEach(module('knowledge'));
 
     var tilesController, scope;
-
-    beforeEach(inject(function ($controller, $rootScope) {
-        scope = $rootScope;
+    beforeEach(inject(function ($controller) {
+        scope = {};
         tilesController = $controller('TilesController', {
             $scope: scope
         })

@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('tiles.controllers', [])
+angular.module('tiles.controller', ['tiles.service'])
 
     .controller('TilesController', ['$scope',
         function ($scope) {

@@ -1,7 +1,6 @@
 'use strict';
 
-angular.module('knowledge', ['tiles.controllers'])
+angular.module('knowledge', ['tiles.controller'])
 
     .run(function () {
-        console.log("* Initializing app");
     });
