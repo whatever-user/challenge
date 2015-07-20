@@ -12,22 +12,22 @@ describe('Testing the service "Tiles"', function () {
         expect(Tiles.all().length).toBe(100);
     });
 
-    describe('searching by title"', function () {
+    describe('searching by content"', function () {
 
         it('there is 1 tile with the word "enterprise"', function () {
-            expect(Tiles.searchByTitle('enterprise').length).toBe(1);
+            expect(Tiles.search('enterprise').length).toBe(1);
         });
 
         it('there are 3 tiles with the word "My"', function () {
-            expect(Tiles.searchByTitle('My').length).toBe(3);
+            expect(Tiles.search('My').length).toBe(3);
         });
 
         it('is case insensitive', function () {
-            expect(Tiles.searchByTitle('My').length).toBe(Tiles.searchByTitle('my').length);
+            expect(Tiles.search('My').length).toBe(Tiles.search('my').length);
         });
 
         it('there are no tiles with the word "xxxxxx"', function () {
-            expect(Tiles.searchByTitle('xxxxxx').length).toBe(0);
+            expect(Tiles.search('xxxxxx').length).toBe(0);
         });
 
     });

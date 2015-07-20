@@ -10,6 +10,6 @@ angular.module('tiles.controller', ['tiles.service'])
             };
 
             $scope.$watch('filter', function (filter, oldFilter) {
-                $scope.tiles = Tiles.searchByTitle(filter.content);
+                $scope.tiles = Tiles.search(filter.content);
             }, true);
         }]);

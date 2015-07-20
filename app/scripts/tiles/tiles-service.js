@@ -11,14 +11,14 @@ angular.module('tiles.service', ['tiles.data'])
                 return tiles;
             }
 
-            function searchByTitle(text) {
+            function search(content) {
                 return $filter('filter')(tiles, function (tile, index, tiles) {
-                        return (tile.title.toUpperCase().indexOf(text.toUpperCase()) >= 0)
+                        return (tile.title.toUpperCase().indexOf(content.toUpperCase()) >= 0)
                     }) || [];
             }
 
             return {
                 all: all,
-                searchByTitle: searchByTitle
+                search: search
             }
         }]);
