@@ -7,5 +7,9 @@ angular.module('tiles.controller', ['tiles.service'])
             $scope.tiles = Tiles.all();
             $scope.filter = {
                 content: ''
-            }
+            };
+
+            $scope.$watch('filter', function (filter, oldFilter) {
+                $scope.tiles = Tiles.searchByTitle(filter.content);
+            }, true);
         }]);
