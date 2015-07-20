@@ -2,7 +2,7 @@
 
 angular.module('tiles.controller', ['tiles.service'])
 
-    .controller('TilesController', ['$scope',
-        function ($scope) {
-            $scope.name = "Eder";
+    .controller('TilesController', ['$scope', 'Tiles',
+        function ($scope, Tiles) {
+            $scope.tiles = Tiles.all();
         }]);

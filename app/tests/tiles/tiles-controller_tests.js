@@ -11,7 +11,7 @@ describe('Testing the controller "TilesController"', function () {
         })
     }));
 
-    it('should have Eder by name', function () {
-        expect(scope.name).toBe('Eder');
+    it('should have 100 tiles on creation', function () {
+        expect(scope.tiles.length).toBe(100);
     });
 });
