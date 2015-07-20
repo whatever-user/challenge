@@ -32,6 +32,14 @@ describe('Testing the service "Tiles"', function () {
 
         it('there is 1 tile with the word "Hermansen" in the description', function(){
             expect(Tiles.search('Hermansen').length).toBe(1);
+        });
+
+        it('there is 1 tile with the tag "web article"', function(){
+            expect(Tiles.search('web article').length).toBe(36);
+        });
+
+        it('there are 2 tiles with content or tags "agriculture"', function(){
+            expect(Tiles.search('agriculture').length).toBe(2);
         })
 
     });

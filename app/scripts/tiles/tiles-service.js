@@ -15,7 +15,11 @@ angular.module('tiles.service', ['tiles.data'])
                 return $filter('filter')(tiles, function (tile, index, tiles) {
                         var inTitle = (tile.title.toUpperCase().indexOf(content.toUpperCase()) >= 0);
                         var inDescription = (tile.description.toUpperCase().indexOf(content.toUpperCase()) >= 0);
-                        return inTitle || inDescription;
+                        var foundTags = (tile.tags.filter(function (value) {
+                            return (value.name === content)
+                        }));
+                        var inTags = (foundTags.length > 0);
+                        return inTitle || inDescription || inTags;
                     }) || [];
             }
 
