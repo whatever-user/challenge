@@ -12,8 +12,8 @@ angular.module('tiles.service', ['tiles.data'])
             }
 
             function searchByTitle(text) {
-                return $filter('filter')(tiles, {title: text}, function (a, b) {
-                        return a.toLowerCase().indexOf(b.toLowerCase()) >= 0;
+                return $filter('filter')(tiles, function (tile, index, tiles) {
+                        return (tile.title.toUpperCase().indexOf(text.toUpperCase()) >= 0)
                     }) || [];
             }
 
