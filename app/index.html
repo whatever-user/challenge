@@ -16,13 +16,22 @@
             <h1>Tiles</h1>
         </div>
     </div>
-
     <div class="row">
-        <div class="panel panel-default" ng-repeat="tile in tiles">
-            <div class="panel-heading"> {{tile.title}}</div>
+        <div class="col-md-8">
+            <div class="panel panel-default" ng-repeat="tile in tiles">
+                <div class="panel-body">
+                    <h4>{{tile.title}}</h4>
 
-            <div class="panel-body" ng-if="tile.description">
-                {{tile.description}}
+                    <p ng-if="tile.description">{{tile.description}}</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Filter content ({{filter.content}})</div>
+                <div class="panel-body">
+                    <input type="text" ng-model="filter.content"/>
+                </div>
             </div>
         </div>
     </div>
