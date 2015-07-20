@@ -5,7 +5,7 @@ angular.module('tiles.service', ['tiles.data'])
     .factory('Tiles', ['TilesData', '$filter',
         function (TilesData, $filter) {
 
-            var tiles = TilesData;
+            var tiles = TilesData.load();
 
             function all() {
                 return tiles;
