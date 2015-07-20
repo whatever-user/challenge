@@ -8,6 +8,7 @@
 
     <link href="libs/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="styles/theme.min.css" rel="stylesheet">
+    <link href="styles/index.css" rel="stylesheet">
 
 </head>
 <body>
@@ -25,6 +26,9 @@
                     <h4>{{tile.title}}</h4>
 
                     <p ng-if="tile.description">{{tile.description}}</p>
+                    <ul class="list-inline tags">
+                        <li ng-repeat="tag in tile.tags"><span class="badge">{{tag.name}}</span></li>
+                    </ul>
                 </div>
             </div>
         </div>
