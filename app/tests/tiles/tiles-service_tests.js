@@ -30,5 +30,9 @@ describe('Testing the service "Tiles"', function () {
             expect(Tiles.search('xxxxxx').length).toBe(0);
         });
 
+        it('there is 1 tile with the word "Hermansen" in the description', function(){
+            expect(Tiles.search('Hermansen').length).toBe(1);
+        })
+
     });
 });

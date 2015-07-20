@@ -13,7 +13,9 @@ angular.module('tiles.service', ['tiles.data'])
 
             function search(content) {
                 return $filter('filter')(tiles, function (tile, index, tiles) {
-                        return (tile.title.toUpperCase().indexOf(content.toUpperCase()) >= 0)
+                        var inTitle = (tile.title.toUpperCase().indexOf(content.toUpperCase()) >= 0);
+                        var inDescription = (tile.description.toUpperCase().indexOf(content.toUpperCase()) >= 0);
+                        return inTitle || inDescription;
                     }) || [];
             }
 
