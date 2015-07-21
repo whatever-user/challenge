@@ -2,10 +2,10 @@
 
 angular.module('tiles.service', ['tiles.data', 'tiles.filters'])
 
-    .factory('Tiles', ['TilesData', '$filter', 'colorizeFilter', 'categoryFilter',
-        function (TilesData, $filter, colorizeFilter, categoryFilter) {
+    .factory('Tiles', ['TilesData', '$filter', 'beautifyFilter',
+        function (TilesData, $filter, beautifyFilter) {
 
-            var tiles = categoryFilter(colorizeFilter(TilesData.load()));
+            var tiles = beautifyFilter(TilesData.load());
 
             function all() {
                 return tiles;

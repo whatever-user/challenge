@@ -7,7 +7,11 @@
 
         <p ng-if="tile.description">{{tile.description}}</p>
         <ul class="list-inline tags">
-            <li ng-repeat="tag in tile.tags"><span class="badge">{{tag.name}}</span></li>
+            <li ng-repeat="tag in tile.tags" title="{{tag.facet}}">
+                <span class="badge">
+                   <span class="glyphicon glyphicon-{{tag.icon}}"></span>&nbsp;{{tag.name}}
+                </span>
+            </li>
         </ul>
     </div>
 </div>
