@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('knowledge', ['tiles.controller'])
+angular.module('knowledge', ['tiles.controller', 'tiles.directives'])
 
     .run(function () {
     });
