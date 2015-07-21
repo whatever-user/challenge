@@ -29,4 +29,28 @@ describe('Testing the tiles filters', function () {
             expect(colorizeFilter([{subtype: ''}])[0].color).toBe('dark');
         }));
     })
+
+    describe('categoryFilter', function () {
+        it('"Web" category should be "globe" icon', inject(function (categoryFilter) {
+            expect(categoryFilter([{category: 'Web'}])[0].categoryIcon).toBe('globe');
+        }));
+        it('"Utilisateurs" category should be "cog" icon', inject(function (categoryFilter) {
+            expect(categoryFilter([{category: 'Utilisateurs'}])[0].categoryIcon).toBe('cog');
+        }));
+        it('"Fichiers" category should be "file" icon', inject(function (categoryFilter) {
+            expect(categoryFilter([{category: 'Fichiers'}])[0].categoryIcon).toBe('file');
+        }));
+        it('"Collections" category should be "th-list" icon', inject(function (categoryFilter) {
+            expect(categoryFilter([{category: 'Collections'}])[0].categoryIcon).toBe('th-list');
+        }));
+        it('"Ev\u00e8nements" category should be "calendar" icon', inject(function (categoryFilter) {
+            expect(categoryFilter([{category: 'Ev\u00e8nements'}])[0].categoryIcon).toBe('calendar');
+        }));
+        it('"Emails" category should be "envelope" icon', inject(function (categoryFilter) {
+            expect(categoryFilter([{category: 'Emails'}])[0].categoryIcon).toBe('envelope');
+        }));
+        it('any other category should be "info-sign" icon', inject(function (categoryFilter) {
+            expect(categoryFilter([{category: ''}])[0].categoryIcon).toBe('info-sign');
+        }));
+    })
 });
