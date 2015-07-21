@@ -13,24 +13,28 @@
 </head>
 <body>
 <div ng-app="knowledge" ng-controller="TilesController" class="container">
-    <div class="row">
-        <div class="col-md-12">
-            <h1>Tiles</h1>
-        </div>
-    </div>
-    <div class="row">
-        <div class="col-md-8">
-            <div ng-repeat="tile in tiles">
-                <tile data="tile"/>
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Tiles</a>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div class="panel panel-default">
-                <div class="panel-heading">Filter content</div>
-                <div class="panel-body">
-                    <input type="text" class="form-control" ng-model="filter.content" placeholder="Content"/>
+            <form class="navbar-form navbar-right" role="search">
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+                    <input name="search" type="text" class="form-control" ng-model="filter.content"
+                           placeholder="Search"/>
                 </div>
-            </div>
+            </form>
+        </div>
+
+    </nav>
+
+    <div class="row">
+        <div class="col-md-6">
+            <tile data="tile" ng-repeat="tile in tiles" ng-if="$even"/>
+        </div>
+        <div class="col-md-6">
+            <tile data="tile" ng-repeat="tile in tiles" ng-if="$odd"/>
         </div>
     </div>
 </div>
