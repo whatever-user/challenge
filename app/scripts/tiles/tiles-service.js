@@ -1,11 +1,11 @@
 'use strict';
 
-angular.module('tiles.service', ['tiles.data'])
+angular.module('tiles.service', ['tiles.data', 'tiles.filters'])
 
-    .factory('Tiles', ['TilesData', '$filter',
-        function (TilesData, $filter) {
+    .factory('Tiles', ['TilesData', '$filter', 'colorizeFilter',
+        function (TilesData, $filter, colorizeFilter) {
 
-            var tiles = TilesData.load();
+            var tiles = colorizeFilter(TilesData.load());
 
             function all() {
                 return tiles;
