@@ -20,7 +20,7 @@
     </div>
     <div class="row">
         <div class="col-md-8">
-            <div class="panel panel-default" ng-repeat="tile in tiles">
+            <div class="panel panel-info panel-{{tile.color}}" ng-repeat="tile in tiles">
                 <div class="panel-heading"></div>
                 <div class="panel-body">
                     <h4>{{tile.title}}</h4>
@@ -51,6 +51,7 @@
 <script src="scripts/index.js"></script>
 <script src="scripts/tiles/tiles-controller.js"></script>
 <script src="scripts/tiles/tiles-service.js"></script>
+<script src="scripts/tiles/tiles-filters.js"></script>
 <script src="scripts/tiles/tiles-data.js"></script>
 
 </body>
