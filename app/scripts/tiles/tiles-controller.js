@@ -15,7 +15,7 @@ angular.module('tiles.controller', ['tiles.service'])
             };
 
             $scope.create = function () {
-                Tiles.create($scope.newTile.title);
+                Tiles.create($scope.newTile.title, $scope.newTile.tags);
                 $scope.tiles = Tiles.all();
                 $scope.newTile.title = '';
                 $scope.newTile.tags = '';
