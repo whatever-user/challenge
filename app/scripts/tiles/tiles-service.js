@@ -23,8 +23,27 @@ angular.module('tiles.service', ['tiles.data', 'tiles.filters'])
                     }) || [];
             }
 
+            function create(title, tags) {
+                if (title) {
+                    var tile = {'title': title};
+                    if (tags) {
+                        var tagArray = tags.replace(/\, /g, ',').split(',');
+                        tile.tags = [];
+                        for (var t in tagArray) {
+                            var tag = tagArray[t];
+                            tile.tags.push({name: tag});
+                        }
+                    }
+                    tiles.unshift(tile);
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
             return {
                 all: all,
-                search: search
+                search: search,
+                create: create
             }
         }]);
