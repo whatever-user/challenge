@@ -20,18 +20,8 @@
     </div>
     <div class="row">
         <div class="col-md-8">
-            <div class="panel panel-info panel-{{tile.color}}" ng-repeat="tile in tiles">
-                <div class="panel-heading"><span class="glyphicon glyphicon-{{tile.categoryIcon}}"></span>
-                    &nbsp;{{tile.category}}
-                </div>
-                <div class="panel-body">
-                    <h4>{{tile.title}}</h4>
-
-                    <p ng-if="tile.description">{{tile.description}}</p>
-                    <ul class="list-inline tags">
-                        <li ng-repeat="tag in tile.tags"><span class="badge">{{tag.name}}</span></li>
-                    </ul>
-                </div>
+            <div ng-repeat="tile in tiles">
+                <tile data="tile"/>
             </div>
         </div>
         <div class="col-md-4">
@@ -53,6 +43,7 @@
 <script src="scripts/index.js"></script>
 <script src="scripts/tiles/tiles-controller.js"></script>
 <script src="scripts/tiles/tiles-service.js"></script>
+<script src="scripts/tiles/tiles-directive.js"></script>
 <script src="scripts/tiles/tiles-filters.js"></script>
 <script src="scripts/tiles/tiles-data.js"></script>
 
