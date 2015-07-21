@@ -21,7 +21,9 @@
     <div class="row">
         <div class="col-md-8">
             <div class="panel panel-info panel-{{tile.color}}" ng-repeat="tile in tiles">
-                <div class="panel-heading"></div>
+                <div class="panel-heading"><span class="glyphicon glyphicon-{{tile.categoryIcon}}"></span>
+                    &nbsp;{{tile.category}}
+                </div>
                 <div class="panel-body">
                     <h4>{{tile.title}}</h4>
 

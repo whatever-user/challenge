@@ -32,4 +32,35 @@ angular.module('tiles.filters', [])
             }
             return tiles;
         }
+    })
+
+    .filter('category', function () {
+        return function (tiles) {
+            for (var t in tiles) {
+                var tile = tiles[t];
+                switch (tile.category) {
+                    case 'Web':
+                        tile.categoryIcon = 'globe';
+                        break;
+                    case 'Utilisateurs':
+                        tile.categoryIcon = 'cog';
+                        break;
+                    case 'Fichiers':
+                        tile.categoryIcon = 'file';
+                        break;
+                    case 'Collections':
+                        tile.categoryIcon = 'th-list';
+                        break;
+                    case 'Ev\u00e8nements':
+                        tile.categoryIcon = 'calendar';
+                        break;
+                    case 'Emails':
+                        tile.categoryIcon = 'envelope';
+                        break;
+                    default:
+                        tile.categoryIcon = 'info-sign';
+                }
+            }
+            return tiles;
+        }
     });
