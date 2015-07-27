@@ -34,7 +34,8 @@ angular.module('tiles.service', ['tiles.data', 'tiles.filters'])
                             tile.tags.push({name: tag});
                         }
                     }
-                    tiles.unshift(tile);
+                    var beautifulTile = beautifyFilter([tile]);
+                    tiles.unshift(beautifulTile[0]);
                     return true;
                 } else {
                     return false;
