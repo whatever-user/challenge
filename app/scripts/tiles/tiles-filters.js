@@ -14,9 +14,10 @@ angular.module('tiles.filters', [])
         return function (tiles) {
             for (var t in tiles) {
                 var tile = tiles[t];
+                tile.color = 'stable';
                 switch (tile.subtype) {
                     case 'collection':
-                        tile.color = 'stable';
+                        tile.color = 'energized';
                         break;
                     case 'document':
                         tile.color = 'positive';
@@ -28,7 +29,7 @@ angular.module('tiles.filters', [])
                         tile.color = 'balanced';
                         break;
                     case 'reference':
-                        tile.color = 'energized';
+                        tile.color = 'stable';
                         break;
                     case 'event':
                         tile.color = 'royal';
@@ -36,8 +37,6 @@ angular.module('tiles.filters', [])
                     case 'email':
                         tile.color = 'dark';
                         break;
-                    default:
-                        tile.color = 'dark';
                 }
             }
             return tiles;
@@ -67,8 +66,6 @@ angular.module('tiles.filters', [])
                     case 'Emails':
                         tile.categoryIcon = 'envelope';
                         break;
-                    default:
-                        tile.categoryIcon = 'info-sign';
                 }
             }
             return tiles;
