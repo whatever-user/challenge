@@ -15,30 +15,32 @@ describe('Testing the controller "TilesController"', function () {
         expect(scope.tiles.length).toBe(100);
     });
 
-    it('after a successful tile creation, the new title info is cleared', function () {
-        scope.newTile = {
-            title: 'New tile'
-        };
-        scope.create();
-        expect(scope.newTile.title).toBe('');
-    });
+    describe('creating a new tile', function () {
+        it('after a successful tile creation, the new title info is cleared', function () {
+            scope.newTile = {
+                title: 'New tile'
+            };
+            scope.create();
+            expect(scope.newTile.title).toBe('');
+        });
 
-    it('after a successful tile creation, the tags are cleared', function () {
-        scope.newTile = {
-            title: "New tile",
-            tags: 'tag one, tag two'
-        };
-        scope.create();
-        expect(scope.newTile.tags).toBe('');
-    });
+        it('after a successful tile creation, the tags are cleared', function () {
+            scope.newTile = {
+                title: "New tile",
+                tags: 'tag one, tag two'
+            };
+            scope.create();
+            expect(scope.newTile.tags).toBe('');
+        });
 
 
-    it('after an unsuccessful tile creation, the new title info is not cleared', function () {
-        scope.newTile = {
-            title: '',
-            tags: 'tag one, tag two'
-        };
-        scope.create();
-        expect(scope.newTile.tags).toBe('tag one, tag two');
+        it('after an unsuccessful tile creation, the new title info is not cleared', function () {
+            scope.newTile = {
+                title: '',
+                tags: 'tag one, tag two'
+            };
+            scope.create();
+            expect(scope.newTile.tags).toBe('tag one, tag two');
+        });
     });
 });
