@@ -66,6 +66,8 @@ angular.module('tiles.filters', [])
                     case 'Emails':
                         tile.categoryIcon = 'envelope';
                         break;
+                    default:
+                        tile.categoryIcon = '';
                 }
             }
             return tiles;

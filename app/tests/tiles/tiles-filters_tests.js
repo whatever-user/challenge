@@ -49,8 +49,8 @@ describe('Testing the tiles filters', function () {
         it('"Emails" category should be "envelope" icon', inject(function (categoryFilter) {
             expect(categoryFilter([{category: 'Emails'}])[0].categoryIcon).toBe('envelope');
         }));
-        it('any other category should be "info-sign" icon', inject(function (categoryFilter) {
-            expect(categoryFilter([{category: ''}])[0].categoryIcon).toBe('info-sign');
+        it('any other category should be no icon', inject(function (categoryFilter) {
+            expect(categoryFilter([{category: ''}])[0].categoryIcon).toBe('');
         }));
     });
 
