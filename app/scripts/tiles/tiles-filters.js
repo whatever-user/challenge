@@ -113,4 +113,21 @@ angular.module('tiles.filters', [])
             }
             return tags;
         }
+    })
+
+    .filter('likeIcon', function () {
+        return function (tiles) {
+            if (!tiles) {
+                return [];
+            }
+            for (var tileCounter in tiles) {
+                var tile = tiles[tileCounter];
+                if (tile.iLike) {
+                    tile.likeIcon = 'heart';
+                } else {
+                    tile.likeIcon = 'heart-empty';
+                }
+            }
+            return tiles;
+        }
     });
