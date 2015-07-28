@@ -24,10 +24,20 @@
                     <input name="search" type="text" class="form-control" ng-model="filter.content"
                            placeholder="Search"/>
                 </div>
+                <button type="button" class="btn btn-primary navbar-btn" data-toggle="modal"
+                        data-target="#newTileModal"><span
+                        class="glyphicon glyphicon-plus"></span>&nbsp;New tile
+                </button>
             </form>
         </div>
 
     </nav>
+
+    <div class="alert alert-danger alert-dismissible" style="display: none;" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        Couldn't create the tile. Don't forget the <b>title</b>.
+    </div>
 
     <div class="row">
         <div class="col-md-6">
@@ -35,6 +45,38 @@
         </div>
         <div class="col-md-6">
             <tile data="tile" ng-repeat="tile in tiles" ng-if="$odd"/>
+        </div>
+    </div>
+
+    <div class="modal fade" id="newTileModal" tabindex="-1" role="dialog" aria-labelledby="newTileModal"
+         data-backdrop="false">
+        <div class="modal-dialog" role="document">
+
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span
+                            aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="myModalLabel"><span class="glyphicon glyphicon-plus"></span>&nbsp;New
+                        tile</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label>Title</label>
+                        <input type="text" class="form-control" ng-model="newTile.title"
+                               placeholder="Enter some title" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Tags</label>
+                        <input type="text" class="form-control" ng-model="newTile.tags"
+                               placeholder="Tags separated by commas">
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" ng-click="create()">Create
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -50,6 +92,7 @@
 <script src="scripts/tiles/tiles-directive.js"></script>
 <script src="scripts/tiles/tiles-filters.js"></script>
 <script src="scripts/tiles/tiles-data.js"></script>
+<script src="scripts/utils/jquery-service.js"></script>
 
 </body>
 </html>
