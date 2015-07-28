@@ -43,4 +43,11 @@ describe('Testing the controller "TilesController"', function () {
             expect(scope.newTile.tags).toBe('tag one, tag two');
         });
     });
+
+    describe('liking a tile', function () {
+        it('after liking a previously unliked tile it changes to liked', function () {
+            scope.like(2731);
+            expect(scope.tiles[0].iLike).toBeTruthy();
+        });
+    });
 });
