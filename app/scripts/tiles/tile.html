@@ -1,11 +1,15 @@
 <div class="panel panel-info panel-{{tile.color}}">
     <div class="panel-heading"><span class="glyphicon glyphicon-{{tile.categoryIcon}}"></span>
         &nbsp;{{tile.category}}
+        <ul class="list-inline pull-right">
+            <li><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;{{tile.nLikes}}</li>
+        </ul>
     </div>
     <div class="panel-body">
         <h4>{{tile.title}}</h4>
 
         <p ng-if="tile.description">{{tile.description}}</p>
+
         <ul class="list-inline tags">
             <li ng-repeat="tag in tile.tags" title="{{tag.facet}}">
                 <span class="badge">
