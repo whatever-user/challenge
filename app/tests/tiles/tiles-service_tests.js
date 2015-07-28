@@ -75,5 +75,13 @@ describe('Testing the service "Tiles"', function () {
             expect(Tiles.all()[0].tags[0].name).toBe('tag one');
             expect(Tiles.all()[0].tags[1].name).toBe('tag two');
         });
+        it('two equal tags only create one tag', function () {
+            Tiles.create('Test tile', 'tag one, tag one');
+            expect(Tiles.all()[0].tags.length).toBe(1);
+        });
+        it('two equal tags and a different one only create two tags', function () {
+            Tiles.create('Test tile', 'tag one, tag one, tag two');
+            expect(Tiles.all()[0].tags.length).toBe(2);
+        });
     });
 });

@@ -27,11 +27,19 @@ angular.module('tiles.service', ['tiles.data', 'tiles.filters'])
                 if (title) {
                     var tile = {'title': title};
                     if (tags) {
-                        var tagArray = tags.replace(/\, /g, ',').split(',');
+                        var tagArray = tags.replace(/, /g, ',').split(',');
                         tile.tags = [];
-                        for (var t in tagArray) {
-                            var tag = tagArray[t];
-                            tile.tags.push({name: tag});
+                        for (var tagArrayIndex in tagArray) {
+                            var tag = tagArray[tagArrayIndex];
+                            var tagFound = false;
+                            for (var tagsIndex = 0; tagsIndex < tile.tags.length && !tagFound; tagsIndex++) {
+                                if (tile.tags[tagsIndex].name == tag) {
+                                    tagFound = true;
+                                }
+                            }
+                            if (!tagFound) {
+                                tile.tags.push({name: tag});
+                            }
                         }
                     }
                     var beautifulTile = beautifyFilter([tile]);
