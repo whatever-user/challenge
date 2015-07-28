@@ -15,10 +15,17 @@ angular.module('tiles.controller', ['tiles.service'])
             };
 
             $scope.create = function () {
-                Tiles.create($scope.newTile.title, $scope.newTile.tags);
-                $scope.tiles = Tiles.all();
-                $scope.newTile.title = '';
-                $scope.newTile.tags = '';
+                var result = Tiles.create($scope.newTile.title, $scope.newTile.tags);
+                if (result) {
+                    $scope.tiles = Tiles.all();
+                    $scope.newTile.title = '';
+                    $scope.newTile.tags = '';
+                } else {
+                    $(".alert").fadeTo(3000, 100);
+                    window.setTimeout(function () {
+                        $(".alert").hide();
+                    }, 5000);
+                }
             };
 
             $scope.$watch('filter', function (filter, oldFilter) {
