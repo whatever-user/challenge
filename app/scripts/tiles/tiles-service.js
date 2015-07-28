@@ -70,6 +70,7 @@ angular.module('tiles.service', ['tiles.data', 'tiles.filters'])
                 if (tile && tile.canLike) {
                     tile.iLike = !tile.iLike;
                     tile.nLikes += tile.iLike ? 1 : -1;
+                    beautifyFilter([tile]);
                 }
             }
 

@@ -118,6 +118,12 @@ describe('Testing the service "Tiles"', function () {
             expect(Tiles.getById(idTile).nLikes).toBe(1);
         });
 
+        it('after liking a previously unliked tile the icon is "heart"', function () {
+            var idTile = 2731;
+            Tiles.like(idTile);
+            expect(Tiles.getById(idTile).likeIcon).toBe('heart');
+        });
+
         it('after liking a previously liked tile it changes to unliked', function () {
             var idTile = 2687;
             Tiles.like(idTile);
