@@ -3,7 +3,7 @@
         &nbsp;{{tile.category}}
         <ul class="list-inline pull-right">
             <li><a ng-click="like(tile)">
-                <span class="glyphicon glyphicon-heart-empty"></span>
+                <span class="glyphicon glyphicon-{{tile.likeIcon}}"></span>
                 &nbsp;{{tile.nLikes}}</a>
             </li>
             <li><span class="glyphicon glyphicon-star-empty"></span>&nbsp;{{tile.nFollowers}}</li>
