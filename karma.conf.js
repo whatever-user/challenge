@@ -10,6 +10,7 @@ module.exports = function (config) {
         files: [
             'libs/angular/angular.min.js',
             'libs/angular-mocks/angular-mocks.js',
+            'libs/jquery/dist/jquery.min.js',
             'scripts/**/*.js',
             'tests/**/*_tests.js'
         ],
@@ -28,7 +29,7 @@ module.exports = function (config) {
 
         autoWatch: true,
 
-        browsers: ['PhantomJS'],
+        browsers: ['Chrome'],
 
         singleRun: false
     })
