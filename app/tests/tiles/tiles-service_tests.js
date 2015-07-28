@@ -84,4 +84,18 @@ describe('Testing the service "Tiles"', function () {
             expect(Tiles.all()[0].tags.length).toBe(2);
         });
     });
+
+    describe('updating a tile"', function () {
+        beforeEach(inject(function (_Tiles_) {
+            Tiles = _Tiles_;
+        }));
+
+        it('the tile with id "2731" has the title "Ma s\u00e9lection"', function () {
+            expect(Tiles.getById(2731).title).toBe('Ma s\u00e9lection');
+        });
+
+        it('the tile with id "-999" doesn\'t exist', function () {
+            expect(Tiles.getById(-999)).toBe(null);
+        });
+    });
 });

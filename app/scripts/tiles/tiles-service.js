@@ -50,9 +50,24 @@ angular.module('tiles.service', ['tiles.data', 'tiles.filters'])
                 }
             }
 
+            function searchIndexById(id) {
+                for (var tileIndex = 0; tileIndex < tiles.length; tileIndex++) {
+                    var tile = tiles[tileIndex];
+                    if (tile.id == id) {
+                        return tileIndex;
+                    }
+                }
+            }
+
+            function getById(id) {
+                var tileIndex = searchIndexById(id);
+                return (tileIndex >= 0 ? tiles[tileIndex] : null)
+            }
+
             return {
                 all: all,
                 search: search,
-                create: create
+                create: create,
+                getById: getById
             }
         }]);
