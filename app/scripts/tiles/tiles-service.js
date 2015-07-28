@@ -64,10 +64,20 @@ angular.module('tiles.service', ['tiles.data', 'tiles.filters'])
                 return (tileIndex >= 0 ? tiles[tileIndex] : null)
             }
 
+            function like(id) {
+                var tileIndex = searchIndexById(id);
+                var tile = tiles[tileIndex];
+                if (tile && tile.canLike) {
+                    tile.iLike = !tile.iLike;
+                    tile.nLikes += tile.iLike ? 1 : -1;
+                }
+            }
+
             return {
                 all: all,
                 search: search,
                 create: create,
-                getById: getById
+                getById: getById,
+                like: like
             }
         }]);
