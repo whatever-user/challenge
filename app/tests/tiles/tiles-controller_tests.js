@@ -15,20 +15,30 @@ describe('Testing the controller "TilesController"', function () {
         expect(scope.tiles.length).toBe(100);
     });
 
-    it('after creating a tile, the title is cleared', function () {
+    it('after a successful tile creation, the new title info is cleared', function () {
         scope.newTile = {
-            title: "New tile"
+            title: 'New tile'
         };
         scope.create();
         expect(scope.newTile.title).toBe('');
     });
 
-    it('after creating a tile, the tags are cleared', function () {
+    it('after a successful tile creation, the tags are cleared', function () {
         scope.newTile = {
             title: "New tile",
             tags: 'tag one, tag two'
         };
         scope.create();
         expect(scope.newTile.tags).toBe('');
+    });
+
+
+    it('after an unsuccessful tile creation, the new title info is not cleared', function () {
+        scope.newTile = {
+            title: '',
+            tags: 'tag one, tag two'
+        };
+        scope.create();
+        expect(scope.newTile.tags).toBe('tag one, tag two');
     });
 });
