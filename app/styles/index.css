@@ -1,63 +1,77 @@
-.panel-stable{
+.panel-stable {
     border-color: #E0E0E0;
 }
 
-.panel-stable .panel-heading{
+.panel-stable .panel-heading {
     background-color: #E0E0E0;
 }
 
-.panel-positive{
+.panel-positive {
     border-color: #3F51B5;
 }
 
-.panel-positive .panel-heading{
+.panel-positive .panel-heading {
     background-color: #3F51B5;
 }
 
-.panel-calm{
+.panel-calm {
     border-color: #2196F3;
 }
 
-.panel-calm .panel-heading{
+.panel-calm .panel-heading {
     background-color: #2196F3;
 }
 
-.panel-balanced{
+.panel-balanced {
     border-color: #4CAF50;
 }
 
-.panel-balanced .panel-heading{
+.panel-balanced .panel-heading {
     background-color: #4CAF50;
 }
 
-.panel-energized{
+.panel-energized {
     border-color: #FFC107;
 }
 
-.panel-energized .panel-heading{
+.panel-energized .panel-heading {
     background-color: #FFC107;
 }
 
-.panel-assertive{
+.panel-assertive {
     border-color: #F44336;
 }
 
-.panel-assertive .panel-heading{
+.panel-assertive .panel-heading {
     background-color: #F44336;
 }
 
-.panel-royal{
+.panel-royal {
     border-color: #9C27B0;
 }
 
-.panel-royal .panel-heading{
+.panel-royal .panel-heading {
     background-color: #9C27B0;
 }
 
-.panel-dark{
+.panel-dark {
     border-color: #607D8B;
 }
 
-.panel-dark .panel-heading{
+.panel-dark .panel-heading {
     background-color: #607D8B;
+}
+
+.panel .panel-heading a {
+    color: white;
+}
+
+.panel .panel-heading a:hover {
+    text-decoration: none;
+    color: black;
+}
+
+.panel .panel-heading a.disabled:hover {
+    text-decoration: none;
+    color: white;
 }
