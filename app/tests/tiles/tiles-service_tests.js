@@ -84,4 +84,63 @@ describe('Testing the service "Tiles"', function () {
             expect(Tiles.all()[0].tags.length).toBe(2);
         });
     });
+
+    describe('finding a tile', function () {
+
+        beforeEach(inject(function (_Tiles_) {
+            Tiles = _Tiles_;
+        }));
+
+        it('the tile with id "2731" has the title "Ma s\u00e9lection"', function () {
+            expect(Tiles.getById(2731).title).toBe('Ma s\u00e9lection');
+        });
+
+        it('the tile with id "-999" doesn\'t exist', function () {
+            expect(Tiles.getById(-999)).toBe(null);
+        });
+    });
+
+    describe('liking a tile', function () {
+
+        beforeEach(inject(function (_Tiles_) {
+            Tiles = _Tiles_;
+        }));
+
+        it('after liking a previously unliked tile it changes to liked', function () {
+            var idTile = 2731;
+            Tiles.like(idTile);
+            expect(Tiles.getById(idTile).iLike).toBeTruthy();
+        });
+
+        it('after liking a previously unliked tile the counter goes up by 1', function () {
+            var idTile = 2731;
+            Tiles.like(idTile);
+            expect(Tiles.getById(idTile).nLikes).toBe(1);
+        });
+
+        it('after liking a previously unliked tile the icon is "heart"', function () {
+            var idTile = 2731;
+            Tiles.like(idTile);
+            expect(Tiles.getById(idTile).likeIcon).toBe('heart');
+        });
+
+        it('after liking a previously liked tile it changes to unliked', function () {
+            var idTile = 2687;
+            Tiles.like(idTile);
+            expect(Tiles.getById(idTile).iLike).toBeFalsy();
+        });
+
+        it('after liking a previously liked tile the counter goes down by 1', function () {
+            var idTile = 2687;
+            Tiles.like(idTile);
+            expect(Tiles.getById(idTile).nLikes).toBe(0);
+        });
+
+        it('it\'s not possible to like or unlike an unlikable tile', function () {
+            var idTile = 102;
+            Tiles.like(idTile);
+            expect(Tiles.getById(idTile).iLike).toBeFalsy();
+        });
+
+    });
 });

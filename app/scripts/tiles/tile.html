@@ -1,8 +1,13 @@
-<div class="panel panel-info panel-{{tile.color}}">
+<div class="panel panel-info panel-{{tile.color}}" ng-controller="TilesController">
     <div class="panel-heading"><span class="glyphicon glyphicon-{{tile.categoryIcon}}"></span>
         &nbsp;{{tile.category}}
         <ul class="list-inline pull-right">
-            <li><span class="glyphicon glyphicon-thumbs-up"></span>&nbsp;{{tile.nLikes}}</li>
+            <li>
+                <a ng-href="{{tile.canLike?'#':''}}" ng-click="like(tile.id)" ng-class="{'disabled': !tile.canLike}">
+                    <span class="glyphicon glyphicon-{{tile.likeIcon}}"></span>
+                </a>
+                &nbsp;{{tile.nLikes}}
+            </li>
             <li><span class="glyphicon glyphicon-star-empty"></span>&nbsp;{{tile.nFollowers}}</li>
             <li><span class="glyphicon glyphicon-comment"></span>&nbsp;{{tile.nComments}}</li>
         </ul>

@@ -85,5 +85,14 @@ describe('Testing the tiles filters', function () {
         it('no tags, no problem', inject(function (tagTypeFilter) {
             expect(tagTypeFilter([])).toEqual([]);
         }));
-    })
+    });
+
+    describe('likeIconFilter', function () {
+        it('unliked tile should be "heart-empty" like icon', inject(function (likeIconFilter) {
+            expect(likeIconFilter([{iLike: false}])[0].likeIcon).toBe('heart-empty');
+        }));
+        it('liked tile should be "heart" like icon', inject(function (likeIconFilter) {
+            expect(likeIconFilter([{iLike: true}])[0].likeIcon).toBe('heart');
+        }));
+    });
 });

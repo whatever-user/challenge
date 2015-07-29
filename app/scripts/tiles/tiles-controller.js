@@ -28,6 +28,10 @@ angular.module('tiles.controller', ['tiles.service', 'jquery.service'])
                 }
             };
 
+            $scope.like = function (tileId) {
+                Tiles.like(tileId);
+            };
+
             $scope.$watch('filter', function (filter, oldFilter) {
                 $scope.tiles = Tiles.search(filter.content);
             }, true);

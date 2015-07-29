@@ -50,9 +50,35 @@ angular.module('tiles.service', ['tiles.data', 'tiles.filters'])
                 }
             }
 
+            function searchIndexById(id) {
+                for (var tileIndex = 0; tileIndex < tiles.length; tileIndex++) {
+                    var tile = tiles[tileIndex];
+                    if (tile.id == id) {
+                        return tileIndex;
+                    }
+                }
+            }
+
+            function getById(id) {
+                var tileIndex = searchIndexById(id);
+                return (tileIndex >= 0 ? tiles[tileIndex] : null)
+            }
+
+            function like(id) {
+                var tileIndex = searchIndexById(id);
+                var tile = tiles[tileIndex];
+                if (tile && tile.canLike) {
+                    tile.iLike = !tile.iLike;
+                    tile.nLikes += tile.iLike ? 1 : -1;
+                    beautifyFilter([tile]);
+                }
+            }
+
             return {
                 all: all,
                 search: search,
-                create: create
+                create: create,
+                getById: getById,
+                like: like
             }
         }]);

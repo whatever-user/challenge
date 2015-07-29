@@ -1,14 +1,15 @@
 angular.module('tiles.filters', [])
-    .filter('beautify', ['colorizeFilter', 'categoryFilter', 'tagTypeFilter', function (colorizeFilter, categoryFilter, tagTypeFilter) {
-        return function (tiles) {
-            for (var t in tiles) {
-                var tile = tiles[t];
-                tile.tags = tagTypeFilter(tile.tags);
-            }
+    .filter('beautify', ['colorizeFilter', 'categoryFilter', 'tagTypeFilter', 'likeIconFilter',
+        function (colorizeFilter, categoryFilter, tagTypeFilter, likeIconFilter) {
+            return function (tiles) {
+                for (var t in tiles) {
+                    var tile = tiles[t];
+                    tile.tags = tagTypeFilter(tile.tags);
+                }
 
-            return colorizeFilter(categoryFilter(tiles))
-        }
-    }])
+                return colorizeFilter(categoryFilter(likeIconFilter(tiles)))
+            }
+        }])
 
     .filter('colorize', function () {
         return function (tiles) {
@@ -112,5 +113,22 @@ angular.module('tiles.filters', [])
                 }
             }
             return tags;
+        }
+    })
+
+    .filter('likeIcon', function () {
+        return function (tiles) {
+            if (!tiles) {
+                return [];
+            }
+            for (var tileCounter in tiles) {
+                var tile = tiles[tileCounter];
+                if (tile.iLike) {
+                    tile.likeIcon = 'heart';
+                } else {
+                    tile.likeIcon = 'heart-empty';
+                }
+            }
+            return tiles;
         }
     });
