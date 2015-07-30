@@ -74,11 +74,22 @@ angular.module('tiles.service', ['tiles.data', 'tiles.filters'])
                 }
             }
 
+            function follow(id) {
+                var tileIndex = searchIndexById(id);
+                var tile = tiles[tileIndex];
+                if (tile && tile.follow_active) {
+                    tile.follow = !tile.follow;
+                    tile.nFollowers += tile.follow ? 1 : -1;
+                    beautifyFilter([tile]);
+                }
+            }
+
             return {
                 all: all,
                 search: search,
                 create: create,
                 getById: getById,
-                like: like
+                like: like,
+                follow: follow
             }
         }]);

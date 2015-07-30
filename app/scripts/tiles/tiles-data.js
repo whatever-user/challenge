@@ -32,7 +32,7 @@ angular.module('tiles.data', [])
                         "expertName": "Adam Littleton",
                         "expertProfileId": 1,
                         "follow": false,
-                        "follow_active": false,
+                        "follow_active": true,
                         "group": {},
                         "href": "",
                         "iLike": false,
@@ -92,7 +92,7 @@ angular.module('tiles.data', [])
                         "expertName": "Henri Dumont",
                         "expertProfileId": 2728,
                         "follow": false,
-                        "follow_active": false,
+                        "follow_active": true,
                         "group": {
                             "id": 208,
                             "name": "Energies renouvelables",
