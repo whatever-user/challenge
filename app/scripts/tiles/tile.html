@@ -22,6 +22,8 @@
 
         <p ng-if="tile.description">{{tile.description}}</p>
 
+        <p class="text-right"><small>by {{tile.expert.name}}</small></p>
+
         <ul class="list-inline tags">
             <li ng-repeat="tag in tile.tags" title="{{tag.facet}}">
                 <span class="badge">
