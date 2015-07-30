@@ -56,8 +56,8 @@ describe('Testing the tiles filters', function () {
         it('"Web" category should be "globe" icon', inject(function (categoryFilter) {
             expect(categoryFilter([{category: 'Web'}])[0].categoryIcon).toBe('globe');
         }));
-        it('"Utilisateurs" category should be "cog" icon', inject(function (categoryFilter) {
-            expect(categoryFilter([{category: 'Utilisateurs'}])[0].categoryIcon).toBe('cog');
+        it('"Utilisateurs" category should be "user" icon', inject(function (categoryFilter) {
+            expect(categoryFilter([{category: 'Utilisateurs'}])[0].categoryIcon).toBe('user');
         }));
         it('"Fichiers" category should be "file" icon', inject(function (categoryFilter) {
             expect(categoryFilter([{category: 'Fichiers'}])[0].categoryIcon).toBe('file');
