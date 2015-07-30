@@ -2,8 +2,8 @@
 
 angular.module('tiles.service', ['tiles.data', 'tiles.filters'])
 
-    .factory('Tiles', ['TilesData', '$filter', 'beautifyFilter',
-        function (TilesData, $filter, beautifyFilter) {
+    .factory('Tiles', ['TilesData', '$filter', 'beautifyFilter', 'likeIconFilter', 'followIconFilter',
+        function (TilesData, $filter, beautifyFilter, likeIconFilter, followIconFilter) {
 
             var tiles = beautifyFilter(TilesData.load());
 
@@ -70,7 +70,17 @@ angular.module('tiles.service', ['tiles.data', 'tiles.filters'])
                 if (tile && tile.canLike) {
                     tile.iLike = !tile.iLike;
                     tile.nLikes += tile.iLike ? 1 : -1;
-                    beautifyFilter([tile]);
+                    likeIconFilter([tile]);
+                }
+            }
+
+            function follow(id) {
+                var tileIndex = searchIndexById(id);
+                var tile = tiles[tileIndex];
+                if (tile && tile.follow_active) {
+                    tile.follow = !tile.follow;
+                    tile.nFollowers += tile.follow ? 1 : -1;
+                    followIconFilter([tile]);
                 }
             }
 
@@ -79,6 +89,7 @@ angular.module('tiles.service', ['tiles.data', 'tiles.filters'])
                 search: search,
                 create: create,
                 getById: getById,
-                like: like
+                like: like,
+                follow: follow
             }
         }]);

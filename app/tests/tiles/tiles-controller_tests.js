@@ -50,4 +50,11 @@ describe('Testing the controller "TilesController"', function () {
             expect(scope.tiles[0].iLike).toBeTruthy();
         });
     });
+
+    describe('following a tile', function () {
+        it('after following a previously unfollowed tile it changes to followed', function () {
+            scope.follow(2730);
+            expect(scope.tiles[1].follow).toBeTruthy();
+        });
+    });
 });

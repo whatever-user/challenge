@@ -141,6 +141,44 @@ describe('Testing the service "Tiles"', function () {
             Tiles.like(idTile);
             expect(Tiles.getById(idTile).iLike).toBeFalsy();
         });
+    });
+
+    describe('following a tile', function () {
+
+        beforeEach(inject(function (_Tiles_) {
+            Tiles = _Tiles_;
+        }));
+
+        it('after following a previously unfollowed tile it changes to liked', function () {
+            var idTile = 2730;
+            Tiles.follow(idTile);
+            expect(Tiles.getById(idTile).follow).toBeTruthy();
+        });
+
+        it('after following a previously unfollowed tile the counter goes up by 1', function () {
+            var idTile = 2730;
+            Tiles.follow(idTile);
+            expect(Tiles.getById(idTile).nFollowers).toBe(2);
+        });
+
+        it('after following a previously followed tile it changes to unfollowed', function () {
+            var idTile = 2689;
+            Tiles.follow(idTile);
+            expect(Tiles.getById(idTile).follow).toBeFalsy();
+        });
+
+        it('after following a previously followed tile the counter goes down by 1', function () {
+            var idTile = 2689;
+            Tiles.follow(idTile);
+            expect(Tiles.getById(idTile).nFollowers).toBe(1);
+        });
+
+        it('it\'s not possible to follow or unfollow an unfollowable tile', function () {
+            var idTile = 2716;
+            Tiles.follow(idTile);
+            expect(Tiles.getById(idTile).follow).toBeFalsy();
+        });
 
     });
+
 });
