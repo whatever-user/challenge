@@ -8,7 +8,12 @@
                 </a>
                 &nbsp;{{tile.nLikes}}
             </li>
-            <li><span class="glyphicon glyphicon-star-empty"></span>&nbsp;{{tile.nFollowers}}</li>
+            <li>
+                <a ng-href="{{tile.follow_active?'#':''}}" ng-click="follow(tile.id)" ng-class="{'disabled': !tile.follow_active}">
+                    <span class="glyphicon glyphicon-star-empty"></span>
+                </a>
+                &nbsp;{{tile.nFollowers}}
+            </li>
             <li><span class="glyphicon glyphicon-comment"></span>&nbsp;{{tile.nComments}}</li>
         </ul>
     </div>
