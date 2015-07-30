@@ -10,12 +10,12 @@ describe('Testing the tiles filters', function () {
         it('"Web" category should be "globe" icon', inject(function (beautifyFilter) {
             expect(beautifyFilter([{category: 'Web'}])[0].categoryIcon).toBe('globe');
         }));
-        it('"technology" tag type should be "floppy-disk" icon', inject(function (beautifyFilter) {
+        it('"technology" tag type should be "cog" icon', inject(function (beautifyFilter) {
             var tiles = [{
                 tags: [{tagType: 'technology'}]
             }];
             var beautifulTiles = beautifyFilter(tiles);
-            expect(beautifulTiles[0].tags[0].icon).toBe('floppy-disk');
+            expect(beautifulTiles[0].tags[0].icon).toBe('cog');
         }));
         it('unliked tile should be "heart-empty" like icon', inject(function (beautifyFilter) {
             expect(beautifyFilter([{iLike: false}])[0].likeIcon).toBe('heart-empty');
@@ -77,8 +77,8 @@ describe('Testing the tiles filters', function () {
     });
 
     describe('tagTypeFilter', function () {
-        it('"technology" tag type should be "floppy-disk" icon', inject(function (tagTypeFilter) {
-            expect(tagTypeFilter([{tagType: 'technology'}])[0].icon).toBe('floppy-disk');
+        it('"technology" tag type should be "cog" icon', inject(function (tagTypeFilter) {
+            expect(tagTypeFilter([{tagType: 'technology'}])[0].icon).toBe('cog');
         }));
         it('"type of document" tag type should be "file" icon', inject(function (tagTypeFilter) {
             expect(tagTypeFilter([{tagType: 'type of document'}])[0].icon).toBe('file');
@@ -87,7 +87,7 @@ describe('Testing the tiles filters', function () {
             expect(tagTypeFilter([{tagType: 'industry'}])[0].icon).toBe('wrench');
         }));
         it('"language" tag type should be "text-color" icon', inject(function (tagTypeFilter) {
-            expect(tagTypeFilter([{tagType: 'language'}])[0].icon).toBe('text-color');
+            expect(tagTypeFilter([{tagType: 'language'}])[0].icon).toBe('flag');
         }));
         it('"th\u00e8mes" tag type should be "education" icon', inject(function (tagTypeFilter) {
             expect(tagTypeFilter([{tagType: 'th\u00e8mes'}])[0].icon).toBe('education');

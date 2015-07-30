@@ -88,7 +88,7 @@ angular.module('tiles.filters', [])
                 var tag = tags[t];
                 switch (tag.tagType) {
                     case 'technology':
-                        tag.icon = 'floppy-disk';
+                        tag.icon = 'cog';
                         break;
                     case 'type of document':
                         tag.icon = 'file';
@@ -97,7 +97,7 @@ angular.module('tiles.filters', [])
                         tag.icon = 'wrench';
                         break;
                     case 'language':
-                        tag.icon = 'text-color';
+                        tag.icon = 'flag';
                         break;
                     case 'th\u00e8mes':
                         tag.icon = 'education';
