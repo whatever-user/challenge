@@ -7,7 +7,11 @@ angular.module('tiles.filters', [])
                     tile.tags = tagTypeFilter(tile.tags);
                 }
 
-                return colorizeFilter(categoryFilter(likeIconFilter(followIconFilter(tiles))))
+                tiles = colorizeFilter(tiles);
+                tiles = categoryFilter(tiles);
+                tiles = likeIconFilter(tiles);
+                tiles = followIconFilter(tiles);
+                return tiles;
             }
         }])
 
