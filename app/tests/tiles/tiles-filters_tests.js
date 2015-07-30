@@ -3,6 +3,28 @@
 describe('Testing the tiles filters', function () {
     beforeEach(module('knowledge'));
 
+    describe('beautifyFilter', function () {
+        it('"collection" subtype should be "energized" color', inject(function (beautifyFilter) {
+            expect(beautifyFilter([{subtype: 'collection'}])[0].color).toBe('energized');
+        }));
+        it('"Web" category should be "globe" icon', inject(function (beautifyFilter) {
+            expect(beautifyFilter([{category: 'Web'}])[0].categoryIcon).toBe('globe');
+        }));
+        it('"technology" tag type should be "floppy-disk" icon', inject(function (beautifyFilter) {
+            var tiles = [{
+                tags: [{tagType: 'technology'}]
+            }];
+            var beautifulTiles = beautifyFilter(tiles);
+            expect(beautifulTiles[0].tags[0].icon).toBe('floppy-disk');
+        }));
+        it('unliked tile should be "heart-empty" like icon', inject(function (beautifyFilter) {
+            expect(beautifyFilter([{iLike: false}])[0].likeIcon).toBe('heart-empty');
+        }));
+        it('unfollowed tile should be "star-empty" follow icon', inject(function (beautifyFilter) {
+            expect(beautifyFilter([{follow: false}])[0].followIcon).toBe('star-empty');
+        }));
+    });
+
     describe('colorizeFilter', function () {
         it('"collection" subtype should be "energized" color', inject(function (colorizeFilter) {
             expect(colorizeFilter([{subtype: 'collection'}])[0].color).toBe('energized');
