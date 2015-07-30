@@ -22,6 +22,8 @@
 
         <p ng-if="tile.description">{{tile.description}}</p>
 
+        <p ng-if="tile.category == 'Web'"><a href="{{tile.content_link}}" target="_blank"><span class="glyphicon glyphicon-link"></span>&nbsp;Open link</a></p>
+
         <p class="text-right"><small>by {{tile.expert.name}}</small></p>
 
         <ul class="list-inline tags">
