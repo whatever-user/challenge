@@ -57,7 +57,7 @@ angular.module('tiles.filters', [])
                         tile.categoryIcon = 'globe';
                         break;
                     case 'Utilisateurs':
-                        tile.categoryIcon = 'cog';
+                        tile.categoryIcon = 'user';
                         break;
                     case 'Fichiers':
                         tile.categoryIcon = 'file';
