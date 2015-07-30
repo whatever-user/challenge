@@ -95,4 +95,13 @@ describe('Testing the tiles filters', function () {
             expect(likeIconFilter([{iLike: true}])[0].likeIcon).toBe('heart');
         }));
     });
+
+    describe('followIconFilter', function () {
+        it('unfollowed tile should be "star-empty" follow icon', inject(function (followIconFilter) {
+            expect(followIconFilter([{follow: false}])[0].followIcon).toBe('star-empty');
+        }));
+        it('followed tile should be "star" follow icon', inject(function (followIconFilter) {
+            expect(followIconFilter([{follow: true}])[0].followIcon).toBe('star');
+        }));
+    });
 });
