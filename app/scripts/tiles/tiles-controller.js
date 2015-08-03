@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('tiles.controller', ['tiles.service', 'jquery.service'])
+angular.module('tiles.controller', ['tiles.service', 'jquery.service', 'tiles.filters', 'ngSanitize'])
 
-    .controller('TilesController', ['$scope', 'Tiles', '$',
-        function ($scope, Tiles, $) {
+    .controller('TilesController', ['$scope', 'Tiles', '$', 'highlightTilesFilter',
+        function ($scope, Tiles, $, highlightTilesFilter) {
             $scope.tiles = Tiles.all();
             $scope.filter = {
                 content: ''
@@ -37,7 +37,9 @@ angular.module('tiles.controller', ['tiles.service', 'jquery.service'])
             };
 
             $scope.$watch('filter', function (filter, oldFilter) {
-                $scope.tiles = Tiles.search(filter.content);
+                if (filter.content != oldFilter.content) {
+                    $scope.tiles = highlightTilesFilter(Tiles.search(filter.content), filter.content);
+                }
             }, true);
         }
     ])
