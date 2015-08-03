@@ -1,6 +1,15 @@
 'use strict';
 
-angular.module('knowledge', ['tiles.controller', 'tiles.directives'])
+angular.module('knowledge', ['ngRoute', 'tiles.controller', 'tiles.directives'])
 
-    .run(function () {
-    });
+    .config(['$routeProvider',
+        function ($routeProvider) {
+            $routeProvider.
+                when('/tiles', {
+                    templateUrl: 'scripts/tiles/tiles.html',
+                    controller: 'TilesController'
+                })
+                .otherwise({
+                    redirectTo: '/tiles'
+                });
+        }]);
