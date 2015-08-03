@@ -152,4 +152,37 @@ angular.module('tiles.filters', [])
             }
             return tiles;
         }
-    });
+    })
+
+    .filter('highlight', function () {
+        return function (text, query) {
+            if (query && query != '') {
+                var queryExpression = new RegExp(query, 'gi');
+                return text.replace(queryExpression, '<b>' + query + '</b>');
+            } else {
+                return text;
+            }
+        }
+    })
+
+    .filter('highlightTiles', ['highlightFilter', function (highlightFilter) {
+        return function (tiles, query) {
+            if (query && query != '') {
+                for (var tileCounter in tiles) {
+                    var tile = tiles[tileCounter];
+                    if (tile.title) {
+                        tile.title = highlightFilter(tile.title, query);
+                    }
+                    if (tile.description) {
+                        tile.description = highlightFilter(tile.description, query);
+                    }
+                    if(tile.tags) {
+                        for (var tagIndex = 0; tagIndex < tile.tags.length; tagIndex++) {
+                            tile.tags[tagIndex].name = highlightFilter(tile.tags[tagIndex].name, query);
+                        }
+                    }
+                }
+            }
+            return tiles
+        }
+    }]);

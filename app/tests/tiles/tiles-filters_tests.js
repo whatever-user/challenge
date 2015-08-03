@@ -126,4 +126,54 @@ describe('Testing the tiles filters', function () {
             expect(followIconFilter([{follow: true}])[0].followIcon).toBe('star');
         }));
     });
+
+    describe('highlightFilter', function () {
+        it('highlight a whole word', inject(function (highlightFilter) {
+            expect(highlightFilter('Lorem ipsum dolor sit amet', 'dolor')).toBe('Lorem ipsum <b>dolor</b> sit amet');
+        }));
+
+        it('highlight is case insensitive', inject(function (highlightFilter) {
+            expect(highlightFilter('Lorem ipsum dolor sit amet', 'DOLOR')).toBe('Lorem ipsum <b>DOLOR</b> sit amet');
+        }));
+
+        it('highlight a whole word multiple times', inject(function (highlightFilter) {
+            expect(highlightFilter('Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet', 'dolor')).toBe('Lorem ipsum <b>dolor</b> sit amet, lorem ipsum <b>dolor</b> sit amet');
+        }));
+
+        it('highlight a partial word', inject(function (highlightFilter) {
+            expect(highlightFilter('Lorem ipsum dolor sit amet', 'dol')).toBe('Lorem ipsum <b>dol</b>or sit amet');
+        }));
+
+        it('highlight a partial word multiple times', inject(function (highlightFilter) {
+            expect(highlightFilter('Lorem ipsum dolor sit amet, lorem ipsum dolor sit amet', 'dol')).toBe('Lorem ipsum <b>dol</b>or sit amet, lorem ipsum <b>dol</b>or sit amet');
+        }));
+
+        it('don\'t hightlight anything if there is no match', inject(function (highlightFilter) {
+            expect(highlightFilter('Lorem ipsum dolor sit amet', 'xxx')).toBe('Lorem ipsum dolor sit amet');
+        }));
+
+        it('don\'t hightlight anything if there is no search text', inject(function (highlightFilter) {
+            expect(highlightFilter('Lorem ipsum dolor sit amet', '')).toBe('Lorem ipsum dolor sit amet');
+        }));
+
+    });
+
+    describe('highlightTilesFilter', function () {
+        it('do not hightlight anything if there are no tiles', inject(function (highlightTilesFilter) {
+            expect(highlightTilesFilter([], 'dolor').length).toBe(0);
+        }));
+
+        it('highlight a word in the title', inject(function (highlightTilesFilter) {
+            expect(highlightTilesFilter([{title: 'Lorem ipsum dolor sit amet'}], 'dolor')[0].title).toBe('Lorem ipsum <b>dolor</b> sit amet');
+        }));
+
+        it('highlight a word in the description', inject(function (highlightTilesFilter) {
+            expect(highlightTilesFilter([{description: 'Lorem ipsum dolor sit amet'}], 'dolor')[0].description).toBe('Lorem ipsum <b>dolor</b> sit amet');
+        }));
+
+        it('highlight a word in the tags', inject(function (highlightTilesFilter) {
+            var tags = [{name: 'tag one'}];
+            expect(highlightTilesFilter([{tags: tags}], 'one')[0].tags[0].name).toBe('tag <b>one</b>');
+        }));
+    });
 });

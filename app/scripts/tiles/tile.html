@@ -18,9 +18,9 @@
         </ul>
     </div>
     <div class="panel-body">
-        <h4>{{tile.title}}</h4>
+        <h4 ng-bind-html="tile.title"></h4>
 
-        <p ng-if="tile.description">{{tile.description}}</p>
+        <p ng-if="tile.description" ng-bind-html="tile.description"></p>
 
         <p ng-if="tile.category == 'Web'"><a href="{{tile.content_link}}" target="_blank"><span class="glyphicon glyphicon-link"></span>&nbsp;Open link</a></p>
         <p ng-if="tile.category == 'Utilisateurs'"><a href="http://google.com/search?q={{tile.title}}" target="_blank"><span class="glyphicon glyphicon-user"></span>&nbsp;Open expert profile</a></p>
@@ -30,7 +30,7 @@
         <ul class="list-inline tags">
             <li ng-repeat="tag in tile.tags" title="{{tag.facet}}">
                 <span class="badge">
-                   <span class="glyphicon glyphicon-{{tag.icon}}"></span>&nbsp;{{tag.name}}
+                   <span class="glyphicon glyphicon-{{tag.icon}}"></span>&nbsp;<span ng-bind-html="tag.name"></span>
                 </span>
             </li>
         </ul>
