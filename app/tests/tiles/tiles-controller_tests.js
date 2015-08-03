@@ -3,8 +3,9 @@
 describe('Testing the controller "TilesController"', function () {
     beforeEach(module('knowledge'));
 
-    var TilesController, scope;
-    beforeEach(inject(function ($controller, $rootScope) {
+    var TilesController, scope, $timeout;
+    beforeEach(inject(function ($controller, $rootScope, _$timeout_) {
+        $timeout = _$timeout_;
         scope = $rootScope.$new();
         TilesController = $controller('TilesController', {
             $scope: scope
@@ -41,6 +42,29 @@ describe('Testing the controller "TilesController"', function () {
             };
             scope.create();
             expect(scope.newTile.tags).toBe('tag one, tag two');
+        });
+    });
+
+    describe('showing an alert message', function () {
+        it('the alert is shown', function () {
+            scope.showAlert();
+            expect(scope.alert.hidden).toBeFalsy();
+        });
+
+        it('the alert is shown with a specific message', function () {
+            scope.showAlert('Specific message');
+            expect(scope.alert.message).toBe('Specific message');
+        });
+
+        it('the default message is "Oops, something went wrong... :("', function () {
+            scope.showAlert();
+            expect(scope.alert.message).toBe('Oops, something went wrong... :(');
+        });
+
+        it('the alert is hidden after the timeout', function () {
+            scope.showAlert();
+            $timeout.flush();
+            expect(scope.alert.hidden).toBeTruthy();
         });
     });
 
