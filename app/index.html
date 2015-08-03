@@ -33,10 +33,10 @@
 
     </nav>
 
-    <div class="alert alert-danger alert-dismissible" style="display: none;" role="alert">
+    <div class="alert alert-danger alert-dismissible" ng-if="!alert.hidden" role="alert" >
         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
         <span class="sr-only">Error:</span>
-        Couldn't create the tile. Don't forget the <b>title</b>.
+        {{alert.message}}
     </div>
 
     <div class="row">
@@ -93,7 +93,6 @@
 <script src="scripts/tiles/tiles-directive.js"></script>
 <script src="scripts/tiles/tiles-filters.js"></script>
 <script src="scripts/tiles/tiles-data.js"></script>
-<script src="scripts/utils/jquery-service.js"></script>
 
 </body>
 </html>
