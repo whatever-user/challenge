@@ -1,9 +1,9 @@
 'use strict';
 
-angular.module('tiles.controller', ['tiles.service', 'jquery.service', 'tiles.filters', 'ngSanitize'])
+angular.module('tiles.controller', ['tiles.service', 'tiles.filters', 'ngSanitize'])
 
-    .controller('TilesController', ['$scope', 'Tiles', '$', 'highlightTilesFilter', '$timeout', '$q',
-        function ($scope, Tiles, $, highlightTilesFilter, $timeout, $q) {
+    .controller('TilesController', ['$scope', 'Tiles', 'highlightTilesFilter', '$timeout', '$q',
+        function ($scope, Tiles, highlightTilesFilter, $timeout, $q) {
             $scope.tiles = Tiles.all();
             $scope.filter = {
                 content: ''
