@@ -11,7 +11,7 @@ I'm especially looking for:
 
 This developer is available for remote working, mainly because of the incoming new member of his family, a pretty little baby girl due date December 2nd. And yes, I'd like to earn quite well.
 
-Want to meet me? I've been working in the frontend challenge, so you can check the code out to see what I've been up to. I found the offer a couple of days before starting a vacation trip with my wife so I've been working on it on and off from the swimming pool of the hotel whenever it's possible. Since I find this offer interesting and I don't know when it will end, I'm sending you this work in progress. I you want to meet me, don't hesitate to contact me: eder.elorriaga@gmail.com
+Want to meet me? I've been working in the frontend challenge, so you can check the code out to see what I've been up to. I found the offer a couple of days before starting a vacation trip with my wife so I've been working on it on and off from the swimming pool of the hotel whenever it's possible. Since I find this offer interesting and I don't know when it will end, I'm sending you this work in progress. If you want to meet me, don't hesitate to contact me: eder.elorriaga@gmail.com
 
 A typical development session:
 ![A typical development session](https://raw.githubusercontent.com/whatever-user/challenge/master/developing.jpg)
