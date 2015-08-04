@@ -10,7 +10,7 @@ angular.module('knowledge', ['ngRoute', 'tiles.controller', 'expert.controller',
                     controller: 'TilesController'
                 })
 
-                .when('/expert/:expertId', {
+                .when('/expert/:expertName', {
                     templateUrl: 'scripts/expert/profile.html',
                     controller: 'ExpertController'
                 })
