@@ -1,0 +1,33 @@
+<style>
+    body {
+        background-color: #AAA;
+    }
+</style>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-default btn-block" onclick="window.location.assign('/')"><span
+                    class="glyphicon glyphicon-chevron-up"></span> Back
+            </button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-6" ng-repeat="element in collection">
+            <div class="panel panel-default">
+                <div class="panel-heading">{{element.date}}<span class="pull-right">by {{element.author}}</span></div>
+                <div class="panel-body">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="{{element.thumb}}" class="center-block img-rounded img-responsive">
+                        </div>
+                        <div class="col-sm-8">
+                            <h3>{{element.title}}</h3>
+                            <a href="{{element.url}}" target="_blank">{{element.url}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

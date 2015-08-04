@@ -22,8 +22,9 @@
 
         <p ng-if="tile.description" ng-bind-html="tile.description"></p>
 
-        <p ng-if="tile.category == 'Web'"><a href="{{tile.content_link}}" target="_blank"><span class="glyphicon glyphicon-link"></span>&nbsp;Open link</a></p>
-        <p ng-if="tile.category == 'Utilisateurs'"><a href="/#/expert/{{tile.expert.name}}"><span class="glyphicon glyphicon-user"></span>&nbsp;Open expert profile</a></p>
+        <p ng-if="tile.category == 'Web'"><a href="{{tile.content_link}}" target="_blank"><span class="glyphicon glyphicon-{{tile.categoryIcon}}"></span>&nbsp;Open link</a></p>
+        <p ng-if="tile.category == 'Utilisateurs'"><a href="/#/expert/{{tile.expert.name}}"><span class="glyphicon glyphicon-{{tile.categoryIcon}}"></span>&nbsp;Open expert profile</a></p>
+        <p ng-if="tile.category == 'Collections'"><a href="/#/collection/{{tile.id}}"><span class="glyphicon glyphicon-{{tile.categoryIcon}}"></span>&nbsp;Open collection</a></p>
 
         <p class="text-right"><small>by {{tile.expert.name}}</small></p>
 
