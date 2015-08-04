@@ -25,6 +25,9 @@
         <p ng-if="tile.category == 'Web'"><a href="{{tile.content_link}}" target="_blank"><span class="glyphicon glyphicon-{{tile.categoryIcon}}"></span>&nbsp;Open link</a></p>
         <p ng-if="tile.category == 'Utilisateurs'"><a href="/#/expert/{{tile.expert.name}}"><span class="glyphicon glyphicon-{{tile.categoryIcon}}"></span>&nbsp;Open expert profile</a></p>
         <p ng-if="tile.category == 'Collections'"><a href="/#/collection/{{tile.id}}"><span class="glyphicon glyphicon-{{tile.categoryIcon}}"></span>&nbsp;Open collection</a></p>
+        <p ng-if="tile.category == 'Fichiers'"><a
+                href="https://docs.google.com/document/d/17L2dZitoL162JXibwyrlqMu8ZK2P5tGa1rA700yJOXI/export?format=pdf&id=17L2dZitoL162JXibwyrlqMu8ZK2P5tGa1rA700yJOXI&token=AC4w5VjefGd4gB3kNj3umUcSl_-3Y6m99A%3A1413557558725"><span
+                class="glyphicon glyphicon-{{tile.categoryIcon}}"></span>&nbsp;Download file</a></p>
 
         <p class="text-right"><small>by {{tile.expert.name}}</small></p>
 
